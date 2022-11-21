@@ -1,3 +1,4 @@
+import { Box } from "@components/common";
 import styled from "styled-components";
 import Empty from "./Empty";
 
@@ -18,7 +19,7 @@ function MyFavorite() {
               <Post>
                 <Image />
                 <Description>
-                  <FavoriteMenu />
+                  <Box />
                   <p>동네 위치</p>
                 </Description>
               </Post>
@@ -70,11 +71,4 @@ const Description = styled.div`
     margin: 0;
     margin-left: 8px;
   }
-`;
-
-const FavoriteMenu = styled.button`
-  width: 24px;
-  height: 24px;
-  background-color: #ffdada;
-  border: none;
 `;

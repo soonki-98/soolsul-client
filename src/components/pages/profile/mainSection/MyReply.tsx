@@ -1,3 +1,4 @@
+import { Box } from "@components/common";
 import styled from "styled-components";
 import Empty from "./Empty";
 
@@ -62,12 +63,8 @@ const Time = styled.p`
   font-size: 12px;
 `;
 
-const ReplyMenu = styled.button`
+const ReplyMenu = styled(Box)`
   position: absolute;
   right: 16px;
   top: 16px;
-  width: 24px;
-  height: 24px;
-  background-color: #ffdada;
-  border: none;
 `;

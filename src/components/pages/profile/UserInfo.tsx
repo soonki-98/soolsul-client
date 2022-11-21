@@ -10,7 +10,7 @@ function UserInfo() {
   };
   return (
     <Wrapper>
-      <ProfileImage />
+      <ProfileImage src="http://www.chemicalnews.co.kr/news/photo/202106/3636_10174_4958.jpg" />
       <StyledUserInfo>
         <div className="nickname">
           <p>닉네임</p>

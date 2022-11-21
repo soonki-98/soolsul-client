@@ -1,3 +1,4 @@
+import { Box } from "@components/common";
 import { TextInput } from "@components/Input";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
@@ -39,13 +40,10 @@ const SearchInput = styled(TextInput)`
   width: 100%;
 `;
 
-const LogoBox = styled.div<{ position: "left" | "right" }>`
+const LogoBox = styled(Box)<{ position: "left" | "right" }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background-color: #ffdada;
   margin: 0 8px;
   ${({ position }) => {
     switch (position) {

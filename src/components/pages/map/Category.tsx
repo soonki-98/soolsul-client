@@ -1,3 +1,4 @@
+import { Box } from "@components/common";
 import { CategoryType } from "@lib/types";
 import { useRouter } from "next/router";
 import React from "react";
@@ -38,7 +39,7 @@ function Category({ value }: ICategoryProps) {
 
   return (
     <CategoryButton value={value} onClick={handleRoute}>
-      <Icon />
+      <Box />
       <p>{CATEGORY_NAME[value]}</p>
     </CategoryButton>
   );
@@ -61,10 +62,4 @@ const CategoryButton = styled.button`
     color: #000;
     font-size: 12px;
   }
-`;
-
-const Icon = styled.div`
-  width: 24px;
-  height: 24px;
-  background-color: #ffdada;
 `;

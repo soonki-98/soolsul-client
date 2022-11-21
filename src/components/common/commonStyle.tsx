@@ -8,3 +8,9 @@ export const CommonWrapper = styled.div`
   overflow: hidden;
   height: 100vh;
 `;
+
+export const Box = styled.div`
+  width: 24px;
+  height: 24px;
+  background-color: #ffdada;
+`;

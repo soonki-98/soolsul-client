@@ -1,10 +1,11 @@
+import { Box } from "@components/common";
 import styled from "styled-components";
 
 function Header() {
   return (
     <StyledHeader>
       <h1>프로필</h1>
-      <button />
+      <Box />
     </StyledHeader>
   );
 }
@@ -21,11 +22,5 @@ const StyledHeader = styled.header`
     font-size: 20px;
     font-weight: 500;
     color: #000;
-  }
-  button {
-    width: 24px;
-    height: 24px;
-    background-color: #ffdada;
-    border: none;
   }
 `;

@@ -12,12 +12,19 @@ body {
   --vh: 100%;
 }
 
+p {
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
+ul,
 li {
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
