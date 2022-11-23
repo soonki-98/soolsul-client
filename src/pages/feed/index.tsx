@@ -1,4 +1,4 @@
-import { Box, CommonWrapper } from "@components/common";
+import { BottomMenu, Box, CommonWrapper } from "@components/common";
 import { Post } from "@components/pages/feed";
 import styled from "styled-components";
 
@@ -10,6 +10,7 @@ function FeedPage() {
         <p>을지로</p>
       </Header>
       <Post />
+      <BottomMenu />
     </Wrapper>
   );
 }
