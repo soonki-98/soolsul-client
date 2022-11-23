@@ -1,7 +1,8 @@
-import axios, { AxiosInstance } from "axios";
-import { getToken } from "@lib/utils";
-import { InterceptorCallbackType } from "./type";
-import { LoginType } from "@lib/types/user";
+import axios, { AxiosInstance } from 'axios';
+import { getToken } from '@lib/utils';
+import { InterceptorCallbackType } from './type';
+import { LoginType } from '@lib/types/user';
+import { BarType } from '@lib/types';
 
 /**
  * REST API 관련 클래스
@@ -16,7 +17,7 @@ export class Network {
     this._instance = axios.create({
       baseURL,
       headers: {
-        "x-auth-token": this._token,
+        'x-auth-token': this._token,
       },
     });
   }
@@ -26,10 +27,17 @@ export class Network {
    */
   user = {
     login: async ({ id, password }: LoginType) => {
-      return this._instance.post("/login", { id, password });
+      return this._instance.post('/login', { id, password });
     },
   };
 
+  bar = {
+    getBarList: async ({ latitude, longitude, zoomLevel = 6, moodTag = '', drinkTag = '' }: BarType.barSearchTyoe) => {
+      return this._instance.get(
+        `/api/bars?latitude=${latitude}&longitude=${longitude}&level=${zoomLevel}&barMoodTagNames=${moodTag}&barAlcoholTagNames=${drinkTag}`
+      );
+    },
+  };
   /**
    * axios 인터셉터
    */
@@ -65,6 +73,9 @@ export class Network {
       );
       return this._instance;
     }
+  }
+  get instance() {
+    return this._instance;
   }
 }
 /**
