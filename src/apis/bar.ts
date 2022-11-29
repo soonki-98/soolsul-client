@@ -1,21 +1,27 @@
 import { BarType } from '@lib/types';
-import { AxiosResponse } from 'axios';
-import APIS from './network';
+import RestAPI from './restapi';
 
+
+class BarAPI {
 /**
- * 로그인하기
- * @param id 유저 아이디
- * @param password 비밀번호
+ * 술집 목록 조회
+ * @param latitude
+ * @param longitude
+ * @param zoomLevel
+ * @param moodTag
+ * @param drinkTag
  */
-export function getBarList(data: BarType.barSearchTyoe): Promise<{ code: string; data: any; message: string }> {
-  return new Promise((resolve, reject) => {
+  public async getBarList(data: BarType.barSearchTyoe) {
     try {
-      (async () => {
-        const result: AxiosResponse<{ code: string; data: any; message: string }> = await APIS.bar.getBarList(data);
-        resolve(result.data);
-      })();
+      const { latitude, longitude, zoomLevel, moodTag, drinkTag } = data;
+      const result = await RestAPI.get(
+        `/api/bars?latitude=${latitude}&longitude=${longitude}&level=${zoomLevel}&barMoodTagNames=${moodTag}&barAlcoholTagNames=${drinkTag}`
+      );
+      return result.data;
     } catch (error) {
-      reject(error);
+      console.log(error);
     }
-  });
+  }
 }
+
+export default new BarAPI();

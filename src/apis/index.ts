@@ -1,5 +1,5 @@
-import * as user from './users';
-import * as bar from './bar';
+import { default as user } from './users';
+import { default as bar } from './bar';
 
 const apis = {
   user,

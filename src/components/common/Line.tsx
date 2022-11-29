@@ -1,10 +1,10 @@
-import React from "react";
-import styled, { css } from "styled-components";
+import React from 'react';
+import styled, { css } from 'styled-components';
 
 interface ILineProps {
-  direction?: "vertical" | "horizontal";
+  direction?: 'vertical' | 'horizontal';
   thickness?: number;
-  width?: number;
+  width?: number | string;
   color?: string;
   attrs?: React.HTMLAttributes<HTMLHRElement>;
 }
@@ -13,7 +13,7 @@ const Line = styled.hr<ILineProps>`
   margin: 0;
   ${({ direction }) => {
     switch (direction) {
-      case "vertical":
+      case 'vertical':
         return css`
           transform: rotate(90deg);
         `;
@@ -23,7 +23,7 @@ const Line = styled.hr<ILineProps>`
     return css`
       height: ${thickness || 1}px;
       width: ${width || 10}px;
-      background-color: ${color || "#000"};
+      background-color: ${color || '#000'};
     `;
   }}
 `;

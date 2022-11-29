@@ -1,45 +1,56 @@
-import React from 'react'
-import styled from 'styled-components'
-import { CommonButton, CommonWrapper } from '@components/common'
-import { LoginInput } from '@components/pages/login'
-import { useRouter } from 'next/router'
+import React from 'react';
+import styled from 'styled-components';
+import { CommonButton, CommonWrapper } from '@components/common';
+import { LoginInput } from '@components/pages/login';
+import { useLogin } from '@hooks/pages/login';
 
 function Login() {
-  const router = useRouter()
-  // const { loginInfo, handleChangeLoginInfo, handleLoginSubmit } = useLogin()
-  // const { id, password } = loginInfo
+  const { loginInfo, handleChangeLoginInfo, handleLoginSubmit } = useLogin();
+  const { email, password } = loginInfo;
+
+  console.log(Object.values(loginInfo).includes(''));
+
+  const handleClick = () => {
+    if (Object.values(loginInfo).includes('')) {
+      alert('로그인에 필요한 모든 정보를 입력해주세요');
+    } else {
+      handleLoginSubmit();
+    }
+  };
 
   return (
     <Wrapper>
       <LoginContainer>
-        <div className='logoBox'>로고 마크</div>
+        <div className="logoBox">로고 마크</div>
         <LoginInput
-          id='email'
+          id="email"
           title={'이메일'}
           placeHolderText={'예) numble@gmail.com'}
+          onChange={handleChangeLoginInfo}
+          value={email}
+          invalidText={''}
+          errorPart={'email'}
         />
         <LoginInput
-          id='password'
+          id="password"
           title={'비밀번호'}
           placeHolderText={'영문, 숫자 조합 8~20 자리'}
+          onChange={handleChangeLoginInfo}
+          value={password}
+          invalidText={''}
+          errorPart={'password'}
         />
-        <CommonBtn
-          onClick={() => {
-            router.push('signup')
-          }}
-        >
-          로그인
-        </CommonBtn>
+        <CommonBtn onClick={handleClick}>로그인</CommonBtn>
       </LoginContainer>
     </Wrapper>
-  )
+  );
 }
 
-export default Login
+export default Login;
 
 const Wrapper = styled(CommonWrapper)`
   background-color: #fff;
-`
+`;
 
 const LoginContainer = styled.div`
   display: flex;
@@ -49,15 +60,15 @@ const LoginContainer = styled.div`
   padding: 16px;
 
   .logoBox {
-    width: 75%;
+    width: 100%;
     height: 5rem;
     background: #cec1f4;
     text-align: center;
     margin: 3rem auto;
   }
-`
+`;
 
 const CommonBtn = styled(CommonButton)`
-  margin: 3rem 0;
+  margin: 3rem auto;
   width: 100%;
-`
+`;

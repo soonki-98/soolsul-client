@@ -1,8 +1,8 @@
-import { Spinner } from "@components/Loader";
-import Property from "@lib/utils/Properties";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import styled from "styled-components";
+import { Spinner } from '@components/Loader';
+import Property from '@lib/utils/Properties';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import styled from 'styled-components';
 
 function Error() {
   const router = useRouter();
