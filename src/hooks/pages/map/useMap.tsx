@@ -14,11 +14,17 @@ const useMap = () => {
   };
 
   const handleClickCurrentLocation = () => {
-    window.navigator.geolocation.getCurrentPosition((position) => {
-      Property.setUserLocation(position);
-      setMyLocation(position);
-      setMapInfo({ lat: position.coords.latitude, lng: position.coords.longitude });
-    });
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => {
+        Property.setUserLocation(position);
+        setMyLocation(position);
+        setMapInfo({ lat: position.coords.latitude, lng: position.coords.longitude });
+      },
+      (err) => {
+        console.log(err);
+      },
+      { maximumAge: Infinity, enableHighAccuracy: true, timeout: 10000 }
+    );
   };
 
   useEffect(() => {
