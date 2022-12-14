@@ -20,6 +20,7 @@
     "react-daum-postcode": "^3.1.1",
     "react-dom": "18.2.0",
     "react-kakao-maps-sdk": "^1.1.5",
+    "react-query": "^3.39.2",
     "recoil": "^0.7.6",
     "styled-components": "^5.3.6"
   },
